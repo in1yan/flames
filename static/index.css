@@ -1,0 +1,87 @@
+body{
+    background-color: #e6808a;
+}
+
+html{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:100%;    
+    margin: 0;
+    padding: 0;
+    background: #e6808a;
+    font-family: Fira code;
+}
+.box{
+    background: #191919;
+    text-align: center;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 10px;
+    width:300px;
+    box-shadow: 2px 20px 20px ;
+}
+.box h1{
+    color: white;
+    text-transform: uppercase;
+    font-weight: 500;
+    align-self: center;
+}
+
+.box h5{
+  color: white;
+  text-transform: uppercase;
+  font-weight: 300;
+  align-self: center;
+}
+.box input[type= "text"]{
+    border:0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid;
+    padding: 14px 10px;
+    width: 200px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    transition:0.25s;
+    font-size: medium;
+}
+.box input[type = "text"]:focus,  input[type = "text"]:hover{
+    width:225px;
+    border-color: rgb(232, 67, 94);
+}
+.box input[type = "submit"]{
+    border:0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid rgb(249, 32, 32);
+    padding: 14px 40px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    transition: 0.25s;
+    cursor: pointer;
+}
+.box input[type= "submit"]:hover{
+    background:rgb(249, 32, 32);
+}
+a{
+    text-decoration: none;
+}
+.social{
+    /* bottom: 0px; */
+    font-size: xx-large;
+    text-decoration: none;
+    color: white;
+    text-align: center;
+}
+i{
+    color: white;
+}
