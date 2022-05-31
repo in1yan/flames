@@ -8,8 +8,8 @@
 > Note : It was just a game
 
 ## preview
+![image](https://user-images.githubusercontent.com/78460090/171112108-c3ab3584-daee-45eb-9766-aeaed02cf970.png)
 
-![](screen_shot/app.png =409x)
 
 ## Test the application here
 [💘 flames 🔥 ](https://flames-love.herokuapp.com/)
