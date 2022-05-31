@@ -9,7 +9,7 @@
 
 ## preview
 
-![](Screen_shot/app.png =409x)
+![](screen_shot/app.png =409x)
 
 ## Test the application here
 [💘 flames 🔥 ](https://flames-love.herokuapp.com/)
