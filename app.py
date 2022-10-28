@@ -30,7 +30,7 @@ def index():
                     f.write(f"\nuser[{request.environ['REMOTE_ADDR']}][{datetime.now()}]\n  first name : {first_name} second_name : {second_name}  result : {status[0]}")
                     f.close()
                 return render_template('result.html',status=status, emoji=emoji[1], first_name=first_name, second_name=second_name)
-        elif first_name not in execeptions and second_name not in exceptions:
+        elif first_name not in exceptions and second_name not in exceptions:
             status = flames(first_name, second_name)
             emoji = status.split(" ")
             status = emoji[0]
