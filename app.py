@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template, redirect
+from flask import Flask, request, render_template, redirect, url_for
 from flamesFinder.flames import flames
 from datetime import datetime
 
@@ -9,7 +9,7 @@ second_name = ""
 exceptions = ["iniyan", "vignesh", "anees", "malar", "vinayagam"]
 
 
-@app.route("/", methods=["GET", "POST"])
+@app.route("/flames", methods=["GET", "POST"])
 def index():
     if request.method == "POST":
         first_name = request.form.get("fname").lower()
@@ -62,5 +62,12 @@ def admin():
 
     return render_template("admin.html", file=file)
 
-
+@app.route("/", methods = ["GET","POST"])
+def login():
+    if request.method == "POST":
+        id = request.form.get('id')
+        password = request.form.get('pass')
+        print(id, password)
+        return redirect(f"/flames")
+    return render_template("login.html")
 app.run(debug=True, host="0.0.0.0")

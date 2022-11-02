@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>login</title>
+  <link href="https://fonts.googleapis.com/css?family=Indie+Flower|Overpass+Mono" rel="stylesheet">
+  <link rel="stylesheet" href="../static/login.css">
+</head>
+<body>
+
+<form action="{{url_for('login')}}" method="post">
+  <div id="wrapper">
+    <div class="main-content">
+      <div class="header">
+        <img src="https://i.imgur.com/zqpwkLQ.png" />
+      </div>
+      <div class="l-part">
+        <input type="text" placeholder="Username" class="input-1" name="id" />
+        <div class="overlap-text">
+          <input type="password" placeholder="Password" class="input-2" name = "pass" />
+          <a href="/flames">Forgot?</a>
+        </div>
+        <input type="submit" value="Log in" class="btn" />
+      </div>
+    </div>
+    <div class="sub-content">
+      <div class="s-part">
+        Don't have an account?<a href="/flames"></a>Sign up</a>
+      </div>
+    </div>
+  </div>
+</form>
+
+
+</body>
+</html>
