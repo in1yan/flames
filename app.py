@@ -6,7 +6,7 @@ app = Flask(__name__)
 app.config["SECRET_KEY"] = "ThisIsMe"
 first_name = ""
 second_name = ""
-exceptions = ["iniyan", "vignesh", "anees", "malar", "vinayagam"]
+exceptions = ["iniyan", "vignesh", "anees", "malar", "vinayagam", "malar vizhi", "malarvizhi"]
 
 
 @app.route("/flames", methods=["GET", "POST"])
@@ -14,36 +14,24 @@ def index():
     if request.method == "POST":
         first_name = request.form.get("fname").lower()
         second_name = request.form.get("sname").lower()
+        if first_name != second_name:
+            status = flames(first_name, second_name)
+            emoji = status.split(" ")
+            status = emoji[0]
         if first_name == "admin" and second_name == "admin":
             return redirect("/admin")
 
         else:
             if first_name not in exceptions and second_name not in exceptions:
-                status = flames(first_name, second_name)
-                emoji = status.split(" ")
-                status = emoji[0]
                 with open("./info.txt", "a") as f:
                     f.write(
                         f"\nuser[{request.environ['REMOTE_ADDR']}][{datetime.now()}]\n  first name : {first_name} second_name : {second_name}  result : {status[0]}"
                     )
                     f.close()
-                return render_template(
-                    "result.html",
-                    status=status,
-                    emoji=emoji[1],
-                    first_name=first_name,
-                    second_name=second_name,
-                )
-            elif first_name not in exceptions and second_name not in exceptions:
-                status = flames(first_name, second_name)
-                emoji = status.split(" ")
-                status = emoji[0]
-                with open("./info.txt", "a") as f:
-                    f.write(
-                        f"\n  first name : {first_name} second_name : {second_name}  result : {status[0]}"
-                    )
-                    f.close()
-                return render_template(
+            else:
+                status = "Fuck you"    
+                emoji = "🖕🖕🖕"
+            return render_template(
                     "result.html",
                     status=status,
                     emoji=emoji[1],
