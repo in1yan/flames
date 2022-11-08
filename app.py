@@ -17,7 +17,7 @@ exceptions = [
 ]
 
 @app.route("/", methods=["GET", "POST"])
-def login():
+def index():
     if request.method == "POST":
         id = request.form.get("id")
         password = request.form.get("pass")
