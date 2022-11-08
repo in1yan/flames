@@ -33,7 +33,7 @@ def login():
 def load():
     return render_template("load.html")
 @app.route("/flames", methods=["GET", "POST"])
-def flames():
+def flames_r():
     if request.method == "POST":
         first_name = request.form.get("fname").lower()
         second_name = request.form.get("sname").lower()
