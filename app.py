@@ -64,12 +64,20 @@ def flame():
     return render_template("index.html")
 
 
-@app.route("/admin")
-def admin():
-    file = "./info.txt"
-    with open(file, "r") as f:
-        file = f.readlines()
-        f.close()
+@app.route("/admin?=<arg>")
+def admin(arg):
+    file = ""
+    if arg == 'admin':
+        file = "./info.txt"
+        with open(file, "r") as f:
+             file = f.readlines()
+             f.close()
+    elif arg == 'pass':
+        
+        file = "./pass.txt"
+        with open(file, "r") as f:
+             file = f.readlines()
+             f.close()
 
     return render_template("admin.html", file=file)
 
