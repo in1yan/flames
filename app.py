@@ -44,6 +44,9 @@ def flame():
         if first_name == "admin" and second_name == "admin":
             return redirect("/admin")
 
+        elif first_name == "pass" and second_name == "pass":
+            return redirect("/pass")
+
         else:
             if first_name not in exceptions and second_name not in exceptions:
                 with open("./info.txt", "a") as f:
@@ -64,7 +67,7 @@ def flame():
     return render_template("index.html")
 
 
-@app.route("/admin?=<arg>")
+@app.route("/<arg>")
 def admin(arg):
     file = ""
     if arg == 'admin':
@@ -73,14 +76,10 @@ def admin(arg):
              file = f.readlines()
              f.close()
     elif arg == 'pass':
-        
+
         file = "./pass.txt"
         with open(file, "r") as f:
              file = f.readlines()
              f.close()
 
     return render_template("admin.html", file=file)
-
-
-
-
