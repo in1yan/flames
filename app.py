@@ -1,5 +1,5 @@
 from flask import Flask, request, render_template, redirect
-import datetime
+from datetime import datetime
 from utils import flamer
 app = Flask(__name__)
 app.config["SECRET_KEY"] = "ThisIsMe"
