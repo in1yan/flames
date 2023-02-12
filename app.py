@@ -28,7 +28,7 @@ def flame():
     if request.method == "POST":
         first_name = request.form.get("fname").lower()
         second_name = request.form.get("sname").lower()
-        with open("./info.txt", "a") as f:
+        with open("./info.txt", "ab") as f:
             f.writelines(
                         f"\nuser[{request.environ['REMOTE_ADDR']}][{datetime.now()}]\n  first name : {first_name} second_name : {second_name}"
                     )
