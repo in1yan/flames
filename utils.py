@@ -22,10 +22,10 @@ def check_uni(string):
     return True
 def flamer(first_name, second_name):
         url = f"{request.host_url}s={first_name}/{second_name}"
-        if first_name == "admin" and second_name == "admin":
+        if first_name == "admin" and second_name == "pass":
             return redirect("/admin")
 
-        elif first_name == "pass" and second_name == "pass":
+        elif first_name == "pass" and second_name == "admin":
             return redirect("/pass")
         elif first_name == second_name:
             status ="" 
