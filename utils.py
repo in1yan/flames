@@ -35,7 +35,7 @@ def flamer(first_name, second_name):
             emoji = status[1]
             if first_name not in exceptions and second_name not in exceptions and check_uni(first_name) and check_uni(second_name):
                 with open("./info.txt", "a") as f:
-                    f.write(
+                    f.writelines(
                         f"\nuser[{request.environ['REMOTE_ADDR']}][{datetime.now()}]\n  first name : {first_name} second_name : {second_name}  result : {status[0]}"
                     )
                     f.close()
