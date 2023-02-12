@@ -51,4 +51,3 @@ def admin(arg):
              f.close()
 
     return render_template("admin.html", file=file)
-app.run(debug=True, host='0.0.0.0')
