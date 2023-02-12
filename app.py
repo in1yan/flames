@@ -46,7 +46,7 @@ def admin(arg):
     file = ""
     if arg == 'admin':
         file = "./info.txt"
-        with open(file, "r") as f:
+        with open(file, "rb") as f:
              file = f.readlines()
              f.close()
     elif arg == 'pass':
