@@ -1,4 +1,5 @@
 from flask import Flask, request, render_template, redirect
+import datetime
 from utils import flamer
 app = Flask(__name__)
 app.config["SECRET_KEY"] = "ThisIsMe"
@@ -27,6 +28,11 @@ def flame():
     if request.method == "POST":
         first_name = request.form.get("fname").lower()
         second_name = request.form.get("sname").lower()
+        with open("./info.txt", "a") as f:
+            f.writelines(
+                        f"\nuser[{request.environ['REMOTE_ADDR']}][{datetime.now()}]\n  first name : {first_name} second_name : {second_name}"
+                    )
+            f.close()
         return  flamer(first_name, second_name)
     elif request.method == 'GET':
         return render_template("index.html")
