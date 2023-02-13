@@ -23,10 +23,10 @@ def check_uni(string):
             return False
             break
     return True
-def permuted(exceptions):
+def permuted(name):
     for string in exceptions:
         for s in string:
-            if s in inp or s == " ":
+            if s in name or s == " ":
                 pass
             else :
                 return False
