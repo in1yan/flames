@@ -23,14 +23,7 @@ def check_uni(string):
             return False
             break
     return True
-def permuted(name):
-    for string in exceptions:
-        for s in string:
-            if s in name or s == " ":
-                pass
-            else :
-                return False
-    return True
+    
 def flamer(first_name, second_name):
         url = f"{request.host_url}s={first_name}/{second_name}"
         if first_name == "admin" and second_name == "pass":
@@ -44,7 +37,7 @@ def flamer(first_name, second_name):
         else:
             status = flames(first_name,second_name).split(" ")
             emoji = status[1]
-            if first_name not in exceptions and second_name not in exceptions and check_uni(first_name) and check_uni(second_name) and permute(first_name) and permute(second_name):
+            if first_name not in exceptions and second_name not in exceptions and check_uni(first_name) and check_uni(second_name):
                 pass
             else:
                 status[0] = "Sorry!"
