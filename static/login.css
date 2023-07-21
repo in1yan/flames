@@ -6,7 +6,12 @@
 body {
   background-color: #eee;
 }
-
+html{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:100%;    
+}
 #wrapper {
   width: 500px;
   height: 50%;
